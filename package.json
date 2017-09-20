@@ -1,0 +1,25 @@
+{
+  "name": "is-toni-deploying-sr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "debug": "node inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asyncawait": "1.0.6",
+    "child_process": "1.0.2",
+    "chrome-launcher": "0.8.0",
+    "chrome-remote-interface": "0.24.5",
+    "cloudant": "1.8.0",
+    "express": "4.15.4",
+    "http": "0.0.0",
+    "http-https": "1.0.0",
+    "https": "1.0.0",
+    "moment": "2.18.1"
+  }
+}
