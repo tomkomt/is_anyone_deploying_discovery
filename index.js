@@ -4,15 +4,7 @@ const cloudant = require('cloudant');
 const exec = require('child_process').exec;
 const app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
-setInterval(function() {
-
-}, 60000);
-
-app.get('/discover/opm', function (req, res) {
+var discoverOpm = function() {
   var postResponse = function(resultCode) {
     resultCode = resultCode == '401' ? 1 : 0;
     console.log('[Discover] Result code is...' + resultCode);
@@ -58,8 +50,21 @@ app.get('/discover/opm', function (req, res) {
     postResponse(resultCode);
     console.log('[Discover] HEAD result code...' + resultCode);
   });
+}
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+});
+
+
+app.get('/discover/opm', function (req, res) {
+  discoverOpm();
 });
 
 app.listen(3000, function () {
-  console.log('Backend discovery listening on port 3000!')
+  console.log('Backend discovery listening on port 3000!');
+  discoverOpm();
+  setInterval(function() {
+    discoverOpm();
+  }, 60000);
 })
